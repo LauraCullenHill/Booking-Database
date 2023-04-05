@@ -13,5 +13,15 @@ data = {
     "time_slot": "12-13",
     "customer_name": "laura"
 }
-req = requests.post("http://127.0.0.1:5000/bookings", data=json.dumps(data))
-print(req.json())
+headers = {
+    "content-type": "application/json"
+}
+req = requests.post("http://127.0.0.1:5000/bookings",
+                    headers=headers,
+                    data=json.dumps(data))
+print(req.status_code)
+print(req.content)
+
+# CLIENT TODO:
+# - add a nice panel that shows availabilities and allows bookings
+# - interface for managing booking
